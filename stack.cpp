@@ -35,10 +35,11 @@ void Stack::print() {
   // list.print(); Technically works
   Stack printList = Stack();
   while (!isEmpty()) {
-    cout << top() << endl;
+    cout << top() << " ";
     printList.push(pop());
   }
   while (!printList.isEmpty()) {
     push(printList.pop());
   }
+  cout << endl;
 }
