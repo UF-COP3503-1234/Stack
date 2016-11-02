@@ -18,4 +18,4 @@ public:
   Stack() {
     list = LinkedList();
   }
-}
+};
