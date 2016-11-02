@@ -5,8 +5,8 @@ using namespace std;
 int LinkedList::getSize() {
 	int counter = 0;
 	Node* temp;
-	temp = head;	
-	
+	temp = head;
+
 	// Iterate through the list
 	while (temp != NULL) {
 		temp = temp->next;
@@ -23,7 +23,7 @@ void LinkedList::insertAt(int value, int pos) {
 			// create a new node named head
 			head = new (struct Node);
 			head->value = value;
-			head->next = NULL;			
+			head->next = NULL;
 		}
 		// list is not empty
 		else {
@@ -33,15 +33,15 @@ void LinkedList::insertAt(int value, int pos) {
 			head = temp;
 			// Set members
 			head->value = value;
-			head->next = ptr;		
-		}	
+			head->next = ptr;
+		}
 	}
 	else if (pos > 0 && pos <=getSize()) {
 		Node* prev, *curr;
 		curr = head;
 		for (int i = 0; i < pos; i++) {
 			prev = curr;
-			curr = curr->next;		
+			curr = curr->next;
 		}
 		temp = new(struct Node);
 		prev->next = temp;
@@ -49,19 +49,19 @@ void LinkedList::insertAt(int value, int pos) {
 		temp->value = value;
 	}
 	else {
-		cout << "Out of range" << endl;	
+		cout << "Out of range" << endl;
 	}
 }
 
 void LinkedList::deleteAt(int pos) {
 	if (head==NULL) {
-		cout << "Empty list" <<endl;	
+		cout << "Empty list" <<endl;
 	}
 	else {
 		Node* prev, *curr;
 		curr = head;
 		if (pos==0) {
-			head = curr->next;		
+			head = curr->next;
 		} else {
 			if (pos > 0 && pos < getSize()) {
 				for (int i = 0; i < pos; i++) {
@@ -71,7 +71,7 @@ void LinkedList::deleteAt(int pos) {
 				prev->next = curr->next;
 			}
 			else {
-				cout << "Out of range" << endl;			
+				cout << "Out of range" << endl;
 			}
 		}
 	}
@@ -81,15 +81,15 @@ int LinkedList::search(int value) {
 	Node* temp = head;
 	int index = -1;
 	int counter = 0;
-	
+
 	while (temp->next != NULL) {
 		if (temp->value == value) {
 			index = counter;
-			return index;		
+			return index;
 		} else {
 			counter++;
-			temp = temp->next;		
-		}	
+			temp = temp->next;
+		}
 	}
 	return index;
 }
@@ -99,10 +99,10 @@ int LinkedList::findAt(int pos) {
 	Node* temp = head;
 	if (pos >= getSize()) {
 		cout << "Out of range" << endl;
-		return -1;	
+		return -1;
 	}
 	for (int i = 0; i < pos; i++) {
-		temp = temp->next;	
+		temp = temp->next;
 	}
 	return temp->value;
 }
@@ -121,7 +121,7 @@ void LinkedList::print() {
 void LinkedList::updateAt(int newValue, int pos) {
 	Node* temp = head;
 	int posCounter = 0;
-	
+
 	while (temp->next != NULL) {
 		if (posCounter == pos) {
 			temp->value = newValue;
@@ -129,29 +129,10 @@ void LinkedList::updateAt(int newValue, int pos) {
 		}
 		else {
 			temp = temp->next;
-			posCounter++;		
-		}	
+			posCounter++;
+		}
 	}
 	if (pos>posCounter) {
-		cout << "Index " << pos << " is out of range." << endl;	
+		cout << "Index " << pos << " is out of range." << endl;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
